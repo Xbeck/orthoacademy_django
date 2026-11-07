@@ -1,0 +1,136 @@
+    <!-- header section -->
+
+    <header class="fixed-top">
+    <!-- <section class="header"> -->
+
+        <nav class="container navbar navbar-expand-lg" id="navbar">
+
+            <div class="container-fluid col">
+
+                <div class="collapse navbar-collapse col" id="navbarSupportedContent">
+                        <div class="col-10">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <!-- <img src="/static/images/logo/favicon-32x32.png" alt="Logo"> -->
+                                    <a class="nav-link navbar-brand d-flex" href="{% url 'landing_page' %}">
+                                        <img class="logo__type" src="/static/images/logo/site_logo_type.png" alt="Logo">
+                                        <span class="logo__name mt-1 ms-2">OrthoAcademy</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                        <a class="nav-link {% if request.path == landing_page_url %} active {% endif %}" aria-current="page" href="{% url 'landing_page' %}">Lenta</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {% if request.path == courses_url %} active {% endif %}" href="{% url 'courses:course_list' %}">Kurslar</a>
+                                </li>
+                                
+                                <li class="nav-item dropdown">
+                                    <!-- Кнопка для открытия dropdown меню -->
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Servise
+                                    </a>
+                                    <!-- Содержимое dropdown меню -->
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="https://t.me/ortho_academy_bot" target="_blank">Ortho Academy bot</a></li>
+                                        <li><a class="dropdown-item" href="https://t.me/custom_care_bot" target="_blank">Custom Care bot</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Do'kon</a>
+                                </li>
+
+                                
+                            </ul>
+
+
+                        </div>
+
+
+                    <!-- language section -->
+                    <div class="col-1">
+                        <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown disabled">
+                                <a class="nav-link dropdown-toggle disabled" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    uz
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li class="d-flex justify-content-center">Language</li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+
+                                    <li class="dropdown-item ">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadios"
+                                                id="exampleRadios1" value="option1" checked>
+                                            <label class="form-check-label" for="exampleRadios1">
+                                                uz
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadios"
+                                                id="exampleRadios3" value="option3">
+                                            <label class="form-check-label" for="exampleRadios3">
+                                                ru
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul> -->
+                    </div>
+
+                    <!-- profil button section -->
+                    {% if request.user.is_authenticated %}
+                    <div class="col-1">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                            <li class="nav-item dropdown d-flex dark">
+                                <!-- <img src="..." class="img-thumbnail float-start flex-fill" alt="..."> -->
+                                <span><i class="fa-regular fa-user user__logo mt-2"></i></span>
+
+                                <a class="nav-link dropdown-toggle flex-fill {% if request.path == profile_page_url %} active {% endif %}" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ user.username.title }}
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+
+                                    <li><a class="dropdown-item" href="{% url 'users:dashboard' %}">O'qish zonasi</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+
+                                    <li><a class="dropdown-item" href="{% url 'users:profile' %}">Profile</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+
+                                    <!-- {{ user.id }}
+                                    {{ request.user.id }} -->
+                                    {% block pro_account %}
+
+                                    {% endblock %}
+
+                                    <!-- <li><a class="dropdown-item" href="{% url 'users:password_change_form' %}">Paro'lni o'zgartirish</a></li>
+                                    <li><hr class="dropdown-divider"></li> -->
+
+                                    <li><a class="dropdown-item" href="{% url 'users:logout' %}">Chiqish</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    {% else %}
+                    <div class="col-1">
+                        <a class="btn btn-light" href="{% url 'users:login' %}">Kirish</a>
+                    </div>
+                    {% endif %}
+
+                    
+
+                </div>
+            </div>
+        </nav>
+
+    <!-- </section> -->
+    </header>
+
+<!-- header section end -->

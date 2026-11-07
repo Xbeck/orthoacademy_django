@@ -1,0 +1,19 @@
+{% extends "base_login.html" %}
+
+{% block title %} Admin login panel {% endblock %}
+
+
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'users/css/user.css' %}" type="text/css">
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="container container-block text-center border border-primary">
+    <h1>Admin login Page</h1>
+  </div>
+
+{% endblock %}

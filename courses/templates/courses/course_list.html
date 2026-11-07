@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %} Course List Page {% endblock %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'courses/css/course_list.css' %}" type="text/css">
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="container container-block text-center">
+        <h1 class="title title-block">Courses List Page</h1>
+        <div class="row">
+            {% if courses %}
+                {% for i in page_obj.object_list %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card course-item">
+                            <a href="{% url 'courses:course_detail' i.id %}" class="course-slug">
+                                {% if i.image %}
+                                    <img src="{{ i.image.url }}" class="card-img-top" alt="course picture.">
+                                {% else %}
+                                    <p>Rasmi topilmadi</p>
+                                {% endif %}
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ i.title }}</h5>
+                                        <p class="card-description">{{ i.short_discription }}</p>
+                                        <h3 class="font-semibold text-2xl card-price mt-auto">{% if i.price %} {{ i.price }}$ {% else %} Bepul {% endif %}</h3>
+
+                                        {% if i.price %}
+                                            <a href="{% url 'courses:course_detail' i.id %}" class="btn btn-outline-warning btn-sm">Xarid qilish</a>
+                                        {% else %}
+                                            <a href="{% url 'courses:course_detail' i.id %}" class="btn btn-outline-success btn-sm">Kursni boshlash</a>
+                                        {% endif %}
+                                    </div>
+                            </a>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>Kurslar topilmadi.</p>
+                {% endfor %}
+
+                <!-- paginations -->
+                {% if page_obj|length > 10 %}
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="{% url 'courses:course_list' %}?page={{ page_obj.previous_page_number }}"
+                                        aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+            
+                            <li class="page-item"><a class="page-link" href="#">{{ page_obj.number }}</a></li>
+            
+                            {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="{% url 'courses:course_list' %}?page={{ page_obj.next_page_number }}"
+                                        aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                {% endif %}
+
+            {% endif %}
+        </div>
+    </div>
+
+    {% include 'sections/footer_2.html' %}
+    {% endblock %}

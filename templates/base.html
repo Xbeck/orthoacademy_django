@@ -1,0 +1,116 @@
+{% load static %}
+
+{% url 'landing_page' as landing_page_url %}
+{% url 'users:profile' as profile_page_url %}
+{% url 'courses:course_list' as courses_url %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Orto Academy {% endblock%}</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
+
+    <link rel="stylesheet" href="https://kit.fontawesome.com/13c43ff61f.css" crossorigin="anonymous">
+
+    {% block css %} {% endblock %}
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/site_logo/favicon-16x16.png">
+
+    <style>
+        body {
+            -webkit-user-select: none; /* Отключение выделения текста для Safari */
+            -moz-user-select: none; /* Отключение выделения текста для Firefox */
+            -ms-user-select: none; /* Отключение выделения текста для Internet Explorer/Edge */
+            user-select: none; /* Отключение выделения текста для остальных браузеров */
+        }
+    </style>
+</head>
+
+
+<body class="body" id="body">
+
+    {% include 'sections/header.html' %}
+
+    {% if messages %}
+    <div id="alert-message" class="container text-center">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" role="alert">
+                    {{ message}}
+                </div>
+            {% endfor %}
+    </div>
+    {% endif %}
+
+    
+    {% block content %}
+
+    {% endblock %}
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/13c43ff61f.js" crossorigin="anonymous"></script>
+
+    <script>
+        // No download 
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && (event.key === 's' || event.key === 'S' || event.key === 'u' || event.key === 'U')) {
+                event.preventDefault();
+            }
+        });
+
+
+
+        // dropdown menu closed script
+        document.querySelector('.nav-item.dropdown').addEventListener('mouseleave', function () {
+            var dropdownMenu = this.querySelector('.dropdown-menu');
+            if (dropdownMenu.classList.contains('show')) {
+                // Добавляем задержку перед закрытием
+                // setTimeout(() => {
+                var dropdownToggle = this.querySelector('.dropdown-toggle');
+                dropdownToggle.click();
+                }//, 2000);} // Задержка в 2000 миллисекунд (2 секунды)
+        });
+
+
+        // script chat bot widget uchun
+        document.addEventListener('DOMContentLoaded', function() {
+            var widgetButton = document.querySelector('.b24-widget-button-wrapper');
+            var widgetPopup = document.querySelector('.b24-widget-button-popup');
+            var hideButton = document.querySelector('.b24-widget-button-popup-btn-hide');
+
+            // Показываем/скрываем всплывающее окно при клике на виджет
+            widgetButton.addEventListener('click', function(event) {
+                event.stopPropagation(); // Останавливаем всплытие события
+                widgetPopup.classList.toggle('b24-widget-button-popup-show');
+            });
+
+            // Скрываем всплывающее окно при клике на кнопку скрытия
+            if (hideButton) {
+                hideButton.addEventListener('click', function(event) {
+                    event.stopPropagation(); // Останавливаем всплытие события
+                    widgetPopup.classList.remove('b24-widget-button-popup-show');
+                });
+            }
+
+            // Закрываем всплывающее окно при клике вне виджета
+            document.addEventListener('click', function(event) {
+                if (!widgetButton.contains(event.target) && !widgetPopup.contains(event.target)) {
+                    widgetPopup.classList.remove('b24-widget-button-popup-show');
+                }
+            });
+        });
+
+    </script>
+
+
+</body>
+</html>

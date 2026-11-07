@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} Profile Edit Page {% endblock %}
+
+
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'users/css/edit_profile.css' %}" type="text/css">
+{% endblock %}
+
+
+
+
+
+
+
+{% block content %}
+
+    <div class="container container-block text-center">
+        <h3 class="title">Profile Edit</h3>
+
+        <div class="row">
+        <div class="col-4">
+            <form method="post" action="{% url 'users:edit_profile' %}" class="uniForm" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {{ form|crispy }}
+            <button class="btn btn-outline-warning btn-sm">Save changes</button>
+            </form>
+        </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}
+
+
+{% block footer %}
+<footer>
+    <div class="container sotsets">
+        <hr>
+        <div class="row">
+            <div class="sotset-block col-10">
+                <p class="logotipe d-flex">
+                    <img class="logo__type logo__type-footer" src="/static/images/logo/favicon-32x32.png" alt="Logo">
+                    <span class="logo__name logo__name-footer me-1 ms-1">Ortho Academy</span>
+                </p>
+                <p class="address">Toshkent shahar, Mirzo Ulug'bek tumani, Navoi ko'chasi, 11A</p>
+            </div>
+    
+            <div class="footer-info col-2">
+                <p class="phone">+998 90 938-09-10</p>
+                <p class="prava">© Orto Academy 2024. Barcha huquqlari himoyalangan.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% endblock %}

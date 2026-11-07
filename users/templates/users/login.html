@@ -1,0 +1,46 @@
+{% extends "base_login.html" %}
+{% load crispy_forms_tags %}
+
+
+
+{% block title %} Kirish {% endblock %}
+
+
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'users/css/login.css' %}" type="text/css">
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+    <div class="container d-flex flex-row flex-container mt-0">
+        
+        <div class="col-md-2 login-form flex-item">
+            
+            <form method="post" action="{% url 'users:login' %}" class="uniForm col-md-12">
+                {% csrf_token %}
+                
+                {{ login_form | crispy }}
+                
+                <div class="col-md-12 login-button d-flex align-items-center">
+                    <button class="btn btn-outline-primary btn-sm btn-login" type="submit">Kirish</button>
+                    <span class="set-up-pass ml-3">paro'lni <b><a href="" style="text-decoration: none;">tiklash</a></span>
+                </div>
+                
+            </form>
+            
+        </div>
+
+        <div class="col-md-4 login-logo flex-item">
+            <img src="/static/images/logo/android-chrome-192x192.png" alt="image" class="login-img">
+            <a class="btn btn-success btn-sm btn-sigin ml-3 mt-3" href="{% url 'users:register' %}">Ro'xatdan o'tish</a>
+        </div>
+            
+
+    </div>
+
+{% endblock %}

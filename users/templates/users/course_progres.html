@@ -1,0 +1,150 @@
+{% extends "dashboard_base.html" %}
+
+{% load custom_filters %}
+
+{% block title %} Course Progres Page {% endblock %}
+
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'users/css/course_progres.css' %}" type="text/css">
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+    <div class="row container-block">
+
+            <div class="col-3 sidebar-section">
+
+                <div class="prog-block">
+                    <h1 class="s-title">{{ course.title }}</h1>
+                    
+                    <div class="prog-text">
+                        <p class="prog-text-left mt-3">Siz kursni <span class="prog-text-right">{{ progres }}%</span>
+                            tugatdingiz</p>
+                    </div>
+
+                    <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="{{ progres }}" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar" style="width: {{ progres }}%;">{{ progres }}%</div>
+
+                        <div class="progress-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icons-tabler-outline icon-tabler-ambulance text-success flashing-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5" />
+                                <path d="M6 10h4m-2 -2v4" />
+                                </svg>
+                        </div>
+
+                    </div>
+                </div>
+                
+
+                <h2 class="sub-title">Kurs tarkibi:</h2>
+                    <div class="video-count">
+                        <svg fill="currentColor" width="24" height="24" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg" focusable="false" class="chakra-icon css-1ng3gy9">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM14.66 13.73L13.38 14.47L12.1 15.21C10.45 16.16 9.1 15.38 9.1 13.48V12V10.52C9.1 8.61 10.45 7.84 12.1 8.79L13.38 9.53L14.66 10.27C16.31 11.22 16.31 12.78 14.66 13.73Z"
+                                fill="currentColor">
+                            </path>
+                        </svg>
+                        <span class="">{{ course.count_videos }} ta dars</span>
+                    </div>
+                    <div class="video-time">
+                        <svg fill="none" width="24" height="24" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg" focusable="false" class="chakra-icon css-1ng3gy9">
+                            <path
+                                d="M12 7V12H17M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21Z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                            </path>
+                        </svg>
+                        <span class=""> {{ course.time_video }} soat</span>
+                    </div>
+
+
+
+                <div class="video-block">
+                    {% for j in blockitems %}
+
+                        <div class="video-content">
+
+                            <a href="{% url 'users:course_progres' course.id j %}" class="video-link">
+
+                                <svg class="video-icon" fill="currentColor" width="24" height="24" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg" focusable="false">
+                                    <path
+                                        d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM14.66 13.73L13.38 14.47L12.1 15.21C10.45 16.16 9.1 15.38 9.1 13.48V12V10.52C9.1 8.61 10.45 7.84 12.1 8.79L13.38 9.53L14.66 10.27C16.31 11.22 16.31 12.78 14.66 13.73Z"
+                                        fill="currentColor">
+                                    </path>
+                                </svg>
+                                <span class="video-text {% if j == id %} active {% endif %}">
+                                    {{ j }} - video title lg kjshdfgjkhk klujsdhfgkjah
+                                </span>
+
+                                <div class="video-point {% if j == id %} spinner-grow {% endif %}" style="width: 0.7rem; height: 0.7rem;" role="status">
+                                    <span class="visually-hidden"></span>
+                                </div>
+
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-8 video-section">
+                    <video class="trailer-img" controls controlsList="nodownload" oncontextmenu="return false;">
+                        <source src="/static/videos/{{ id|default:1 }}.mp4" type="video/mp4">
+                        Ваш браузер не поддерживает тег <code>video</code>.
+                    </video>
+
+                {% if len > id %}
+                    <div class="next-video">
+                        <a href="{% url 'users:course_progres' course.id id|add:1 %}" class="btn btn-next" type="button">Keyingi dars</a>
+                    </div>
+                {% endif %}
+            </div>
+    </div>
+
+
+
+
+
+    <script>
+        document.getElementById("myText").addEventListener("click", function() {
+            this.classList.add("active");
+        });
+    </script>
+{% endblock %}
+
+
+
+{% block footer %}
+
+<footer>
+    <div class="sotsets">
+        <hr>
+        <div class="row">
+            <div class="sotset-block col-10">
+                <p class="logotipe d-flex">
+                    <img class="logo__type logo__type-footer" src="/static/images/logo/favicon-32x32.png" alt="Logo">
+                    <span class="logo__name logo__name-footer me-1 ms-1">Ortho Academy</span>
+                </p>
+                <p class="address">Toshkent shahar, Mirzo Ulug'bek tumani, Navoi ko'chasi, 11A</p>
+            </div>
+    
+            <div class="footer-info col-2">
+                <p class="phone">+998 90 938-09-10</p>
+                <p class="prava">© Orto Academy 2024. Barcha huquqlari himoyalangan.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% endblock %}

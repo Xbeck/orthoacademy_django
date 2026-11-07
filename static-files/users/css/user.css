@@ -1,0 +1,44 @@
+/* users */
+
+body{
+    /* margin-top: 0;
+    padding-top: 0; */
+
+    background-color: #12151C;
+    background-image: radial-gradient(#12151C, #212631, #12151C)
+
+}
+
+
+/* .container { */
+    /* margin-top: 200px; */
+    /* margin-bottom: 1px; */
+  /* } */
+
+.container-block {
+    margin-top: 156px;
+    min-height: 68vh;
+
+}
+
+
+
+.user_logo {
+    margin-top: 12px;
+    color: #ffffff;
+}
+
+.user_profile_pic {
+    height: 200px;
+    width: 250px;
+}
+
+.profile-pt {
+    padding-right: 0;
+    margin-right: 0;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+

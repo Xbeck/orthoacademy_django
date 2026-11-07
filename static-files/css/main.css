@@ -1,0 +1,59 @@
+body {
+  background-color: #25A3E1 !important;
+  /* background-image: url("/static/images/home_page.jpg"); */
+  /* background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+
+  height: 100vh;
+  margin: 0;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center; */
+}
+
+
+
+/* #body { */
+  /* background-color: rgb(202, 72, 72); */
+/* } */
+
+/* .body {
+  background-color: rgb(49, 198, 109);
+} */
+
+/* .block_img {
+  background-image: url(https://wallpapershome.ru/images/pages/pic_h/23213.jpg);
+} */
+/* .block_img-image {
+  background-image: url(https://wallpapershome.ru/images/pages/pic_h/23213.jpg);
+} */
+
+
+/* nav bar */
+.navbar-brand {
+    margin-top: 12px;
+    color: #ffffff;
+}
+
+.logotip-text {
+    margin-top: 12px;
+    color: #25A3E1 !important;
+}
+
+
+/* users */
+.user_logo {
+  margin-top: 12px;
+  color: #ffffff;
+}
+
+/* .btn-light {
+    background-color: #ff5733;
+    border-color: #ff5733;
+} */
+
+
+

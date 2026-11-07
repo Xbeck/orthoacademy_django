@@ -1,0 +1,315 @@
+/* Стили по умолчанию для больших экранов */
+body {
+    margin-top: 100px !important;
+    color: #ffffff;
+}
+header {
+    background-color: #12151c;
+}
+#alert-message {
+    margin-top: 100px !important;
+}
+.alert {
+    margin-top: 100px !important;
+}
+div.navbar {
+    background-color: #12151C;
+}
+a.nav-link.navbar-brand {
+    margin-right: 50px;
+    padding: 3px !important;
+    color: #25A3E1;
+}
+.nav-link {
+    color: #ffffff;
+}
+.nav-link:hover {
+    color: #25A3E1;
+}
+.nav-link:after {
+    color: #25A3E1;
+}
+.active {
+    color: #25A3E1 !important;
+}
+.disabled{
+    color: #646165 !important;
+}
+.logo__type {
+    width: 24px !important;
+    height: 32px !important;
+}
+.logo__type-footer {
+    width: 20px !important;
+    height: 24px !important;
+}
+.logo__name {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+    font-size: large !important;
+    font-weight: bolder !important;
+    color: #25A3E1;
+}
+/* users */
+.user__logo {
+    margin-top: 12px !important;
+    color: #ffffff;
+}
+.btn-light {
+    color: #25A3E1;
+}
+.btn-light:hover {
+    font-size: 16px;
+    color:#25A3E1;
+    background-color: #ffffff;
+    border-color: #25A3E1;
+}
+/* Изменение цвета фона и текста в dropdown меню */
+.dropdown-menu {
+    background-color: #12151C; /* Цвет фона меню  343a40 */
+}
+.dropdown-menu .dropdown-item {
+    color: #ffffff; /* Цвет текста в меню */
+}
+/* Цвет текста при наведении */
+.dropdown-menu .dropdown-item:hover {
+    color: #25A3E1; /* Цвет текста при наведении */
+    background-color: #495057; /* Цвет фона при наведении */
+}
+/* Цвет активного элемента */
+.dropdown-menu .dropdown-item.active {
+    color: #25A3E1; /* Цвет текста активного элемента */
+    background-color: #ffffff; /* Цвет фона активного элемента */
+}
+/* Сохранение цвета текста при открытии dropdown меню */
+.nav-item.dropdown .nav-link {
+    color: #ffffff; /*Цвет текста по умолчанию */
+}
+.nav-item.dropdown .nav-link:hover {
+    color: #25A3E1; /* Цвет текста по умолчанию */
+}
+/* footer */
+footer {
+    background-color: #12151C !important;
+}
+.footer-item {
+    padding-top: 20px;
+    display: flex;
+    justify-content: right;
+}
+.footer-info {
+    padding-top: 20px;
+}
+p .logotipe .phone .address {
+    justify-content: left;
+}
+.address {
+    opacity: 0.5;
+}
+.sertifikat {
+    margin: 10px;
+    justify-content: right;
+}
+.sertifikat-item__img {
+    width: 99px;
+    height: 69px;
+}
+.sertifikat-item__text {
+    padding-left: 24px;
+}
+.payment {
+    padding-left: 850px;
+    padding-right: 0;
+}
+.paymentcards {
+    margin-bottom: 0;
+    padding-left: 150px;
+    justify-content: right;
+}
+.paymentcard-item {
+    display: inline-block;
+}
+.paymentcard-item__icon {
+    margin-left: 15px;
+    width: 60px;
+    height: 36px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    opacity: 0.7;
+}
+.sotsets {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.prava {
+    font-size: 12px;
+    opacity: 0.5;
+}
+.sotset__block {
+    display: inline-block;
+    padding-right: 0;
+}
+.sotset-block__right {
+    padding: 0 0 0 250px;
+}
+.sotset-item {
+    margin: 0;
+    display: inline-block;
+}
+.sotset-item__logo {
+    margin-left: 10px;
+    opacity: 0.7;
+}
+.moonlight__icon{
+    border-radius: 6px;
+}
+.thumbnail {
+    max-width: 200px;
+    cursor: pointer;
+}
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 20;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #12151C;
+}
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 15;
+}
+.close:hover,
+.close:focus {
+    color: #eb1717;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 21;
+}
+
+
+
+/* Breakpoints */
+
+/* Мобильные устройства (ширина экрана до 600px) */
+@media (max-width: 576px) {
+    a.nav-link.navbar-brand {
+        margin-right: 10px; /* Еще больше уменьшаем отступ */
+    }
+    .logo__type {
+        width: 16px !important;
+        height: 24px !important;
+    }
+    .logo__name {
+        font-size: small !important; /* Еще больше уменьшаем размер текста */
+    }
+    .btn-light:hover {
+        font-size: 12px; /* Уменьшаем размер текста при наведении */
+    }
+    .user__logo {
+        margin-top: 8px !important; /* Уменьшаем верхний отступ */
+    }
+    .navbar {
+        flex-direction: column;
+    }
+    .nav-link {
+        display: block;
+        margin: 5px 0;
+    }
+    .dropdown-menu {
+        position: static;
+        float: none;
+    }
+    .profile-menu {
+        display: block;
+        margin: 5px 0;
+    }
+    .landing-title{
+        
+    }
+    .footer-item {
+        flex-direction: column;
+        align-items: center;
+    }
+    .payment {
+        padding-left: 0;
+    }
+    .paymentcards {
+        padding-left: 0;
+    }
+    .sotset-block__right {
+        padding: 0;
+    }
+}
+
+/* Планшеты (ширина экрана до 768px) */
+@media (max-width: 768px) {
+    a.nav-link.navbar-brand {
+        margin-right: 20px; /* Уменьшаем отступ */
+    }
+
+    .logo__type {
+        width: 20px !important;
+        height: 28px !important;
+    }
+
+    .logo__name {
+        font-size: medium !important; /* Уменьшаем размер текста */
+    }
+
+    .btn-light:hover {
+        font-size: 14px; /* Уменьшаем размер текста при наведении */
+    }
+    .navbar {
+        flex-direction: column;
+    }
+    .nav-link {
+        display: block;
+        margin: 5px 0;
+    }
+    .dropdown-menu {
+        position: static;
+        float: none;
+    }
+
+    .footer-info {
+        text-align: center;
+    }
+}
+
+/* Маленькие ноутбуки (ширина экрана до 1024px) */
+@media (max-width: 1024px) {
+    .logo__name {
+        font-size: medium !important;
+    }
+
+    .payment {
+        padding-left: 400px;
+    }
+
+    .paymentcards {
+        padding-left: 50px;
+    }
+}
+
+/* Большие экраны (ширина экрана от 1025px и выше) */
+@media (min-width: 1025px) {
+    .logo__name {
+        font-size: large !important;
+    }
+}

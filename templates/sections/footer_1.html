@@ -1,0 +1,82 @@
+<!-- footer 1 section -->
+
+<footer>
+    <hr>
+    <div class="container rov">
+
+        <div class="footer row p-0 mb-0 bg-black-subtle text-emphasis-black" data-bs-theme="black">
+            <!-- <dev class="footer-item col-3"> -->
+            <div class="footer-info col-2">
+                <p class="logotipe d-flex">
+                    <img class="logo__type logo__type-footer" src="/static/images/logo/favicon-32x32.png" alt="Logo">
+                    <span class="logo__name logo__name-footer ms-1">Ortho Academy</span>
+                </p>
+                {% if ortho_academy %}
+                    <p class="phone">{{ ortho_academy.phone }}</p>
+                    <p class="address">{{ ortho_academy.address}}</p>
+                {% else %}
+                    <p class="phone">Phone</p>
+                    <p class="address">Address</p>
+                {% endif %}
+            </div>
+            <!-- </dev> -->
+
+            <div class="footer-item col-10">
+                <div class="sertifikat col-1">
+                    <div class="sertifikat-item gallery">
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="flex flex-col lg:flex-row border-gray-600 gap-y-8 justify-between sm:gap-8 border-b gap-5 lg:items-center md:pt-5 md:py-8 pt-0 py-6 payment">
+                <ul class="flex items-center flex-wrap lg:self-end list-none paymentcards">
+                    <li class="flex items-center justify-center h-12 bg-gray-700 last:mr-0 mb-2 md:mb-0 mr-4 rounded-md w-20 paymentcard-item"><img class="paymentcard-item__icon" loading="lazy" src="/static/icons/Paymeuz_logo.svg" alt="payment type payme"></li>
+                    <li class="flex items-center justify-center h-12 bg-gray-700 last:mr-0 mb-2 md:mb-0 mr-4 rounded-md w-20 paymentcard-item"><img class="paymentcard-item__icon" loading="lazy" src="/static/icons/Click.svg" alt="payment type click"></li>
+                    <li class="flex items-center justify-center h-12 bg-gray-700 last:mr-0 mb-2 md:mb-0 mr-4 rounded-md w-20 paymentcard-item"><img class="paymentcard-item__icon" loading="lazy" src="/static/icons/Visa.svg" alt="payment type visa"></li>
+                    <li class="flex items-center justify-center h-12 bg-gray-700 last:mr-0 mb-2 md:mb-0 mr-4 rounded-md w-20 paymentcard-item"><img class="paymentcard-item__icon" loading="lazy" src="/static/icons/logos_mastercard.svg" alt="payment type mastercard"></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container sotsets">
+        <hr>
+        <div class="row">
+            <div class="sotset-block col-8">
+                <p class="prava">© Ortho Academy 2024. Barcha huquqlari himoyalangan.</p>
+            </div>
+            <div class="sotset-block sotset-block__right col-4">
+                <p class="sotset-item">
+                    <a href="https://www.instagram.com/moonlight_ortho_lab?igsh=MTJhbXJreDV2MmVpcw==">
+                        <img class="sotset-item__logo moonlight__icon" src="/static/images/sotset_logo/favicon-22x24.png" alt="Moonlight Ortho Lab">
+                    </a>
+                </p>
+                <p class="sotset-item">
+                    <a href="https://www.instagram.com/doc.ulugbek.abdusattarov?igsh=M3JsMm5uNTQ5dG5s&utm_source=qr">
+                        <img class="sotset-item__logo" src="/static/icons/instagram-line.svg" alt="Lector: Ulugbek Abdusattarov">
+                    </a>
+                </p>
+                <p class="sotset-item">
+                    <a href="#">
+                        <img class="sotset-item__logo" src="/static/icons/facebook.svg" alt="facebook">
+                    </a>
+                </p>
+                <p class="sotset-item">
+                    <a href="#">
+                        <img class="sotset-item__logo" src="/static/icons/logos_youtube-icon.svg" alt="youtube">
+                    </a>
+                </p>
+                <p class="sotset-item">
+                    <a href="https://t.me/ortho_academy">
+                        <img class="sotset-item__logo" src="/static/icons/telegram.svg" alt="Ortho Academy">
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</footer>

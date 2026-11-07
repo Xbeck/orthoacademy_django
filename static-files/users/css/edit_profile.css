@@ -1,0 +1,20 @@
+
+
+
+body{
+    background-color: #12151C;
+    background-image: radial-gradient(#12151C, #212631, #12151C);
+    color: beige;
+}
+
+.container-block {
+    margin-top: 156px !important;
+    min-height: 68vh;
+
+}
+
+
+
+.title {
+    color: #25A3E1;
+}

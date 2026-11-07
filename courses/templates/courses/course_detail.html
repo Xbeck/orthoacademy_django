@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+{% block title %} Course Detail Page {% endblock %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'courses/css/course_detail.css' %}" type="text/css">
+{% endblock %}
+
+
+
+
+{% block content %}
+
+    <div class="container container-block text-center ">
+        <h1 class="title">Course Detail Page</h1>
+        
+        <div class="course-detail">
+            <img src="{{ course.image.url }}" class="card-img-top course-detail__img mt-5" alt="professional picture.">
+        </div>
+
+        <div class="course-detail">
+            <h5 class="course-detail__item course-title">{{ course.title }}</h5>
+            <p class="course-detail__item course-short-description ">{{ course.short_discription }}</p>
+            <p class="course-detail__item course-description ">{{ course.discription }}</p>
+            <h3 class="font-semibold text-2xl card-price mt-auto">{% if course.price %} {{ course.price }}$ {% else %} Bepul {% endif %}</h3>
+
+            <p>
+                {% if course.price %}
+                    <a href="{% url 'courses:course_invoice' course.id %}" class="course-detail__item btn btn-outline-warning btn-sm course-detail">Xarid qilish</a>
+                {% else %}
+                    <a href="{% url 'users:dashboard' %}" class="course-detail__item btn btn-success course-detail">Kursni boshlash</a>
+                {% endif %}
+            </p>
+        </div>
+    </div>
+
+    {% include 'sections/footer_2.html' %}
+{% endblock %}

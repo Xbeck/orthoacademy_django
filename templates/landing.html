@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %} Lenta {% endblock %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}" type="text/css">
+{% endblock %}
+
+
+
+{% block content %}
+
+    <img src="/static/images/landing-image.png" alt="landing image" class="landing-img">
+
+    <div id="landing-top">
+        <div class="container">
+            <p class="landing-titlle">Online Platform</p>
+            <p class="landing-text">Istalgan joyda, o'zingizga qulay vaqtda o'qish imkoniyati</p>
+        </div>
+    </div>
+
+    <div class="container trailer-block d-flex justify-content-center">
+        <!-- <video width="600" class="trailer-img" controls controlsList="nodownload" oncontextmenu="return false;">
+            <source src="/static/videos/1.mp4" type="video/mp4">
+            Ваш браузер не поддерживает тег <code>video</code>.
+        </video> -->
+        <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
+        </div>
+    </div>
+
+
+
+    <!-- card section -->
+     <hr></hr>
+    <div class="landing-buttom">
+        
+        <div class="container container-card text-center mt-1 mb-1">
+            <p class="landing-buttom__title">Kurslar</p>
+
+
+            <!-- 1-type -->
+            <div class="cards">
+                <div class="cards__inner">
+                    {% for i in courses %}
+                        {% if i %}
+                            <div class="card">
+                                <div class="card__inner">
+                                    <!-- Лицевая сторона карточки -->
+                                    <div class="card__front">
+                                        <img src="{{ i.image.url }}" alt="{{ i.title }}">
+                                        <h3 class="card__title">{{ i.title }}</h3>
+                                        <p class="card__description">{{ i.short_discription }}</p>
+                                    </div>
+                                    <!-- Обратная сторона карточки -->
+                                    <div class="card__back">
+                                        <p class="card__description">{{ i.short_discription }}</p>
+                                        <p class="card__price">{% if i.price %} {{ i.price }}$ {% else %} Bepul {% endif %}</p>
+                                        <a  class="course-link" href="{% url 'courses:course_detail' i.id %}">
+                                            <button class="cta">Batafsil ma'lumot</button>
+                                        </a>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            {% else %}
+                                <p>Ma'lumot topilmadi.</p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    {% include 'sections/footer_1.html' %}
+{% endblock %}
+
+
+
+<!-- script  for  scroll visualisation header -->
+<script>
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 0) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+</script>
